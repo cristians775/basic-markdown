@@ -1,0 +1,34 @@
+import java_cup.runtime.*;
+
+
+action code {: 
+			
+			   
+			
+:}
+
+terminal String NUMERO, CURSIVA, PUNTO,  SALTO_DE_LINEA,  NEGRITA,  ENCABEZADO,  ITEM,  SANGRIA,  NEGRITA_CURSIVA, INICIO, FIN, PALABRA;
+
+
+
+
+non terminal iniciar, instrucciones, instruccion;
+
+start with iniciar;
+
+iniciar ::= INICIO instrucciones FIN
+		{: Programa.fin(); :};	
+
+
+
+instrucciones ::= instruccion instrucciones | instruccion {::};
+ 
+instruccion ::=		NEGRITA:s PALABRA:p NEGRITA {:	Programa.concatenar(s,p);	:}
+				  | CURSIVA:s PALABRA:p CURSIVA {:	Programa.concatenar(s,p);	:}
+				  | ITEM:s PALABRA:p {:	Programa.concatenar(s,p);	:}
+				  | NUMERO:s PUNTO PALABRA:p {:	Programa.concatenar(Integer.toString(s),p);	:}
+				  | SANGRIA:s {:	Programa.concatenar(s,"");	:}
+				  | NEGRITA_CURSIVA:s PALABRA:p NEGRITA_CURSIVA {:	Programa.concatenar(s,p);	:}
+				  | SALTO_DE_LINEA:s PALABRA:p {: Programa.concatenar(s,p); :}
+				  |	PALABRA:p SALTO_DE_LINEA:s {: Programa.concatenar(s,p); :}
+				  | ENCABEZADO:s PALABRA:p	{: Programa.concatenar(s,p); :};
