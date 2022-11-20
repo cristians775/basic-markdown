@@ -33,12 +33,10 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\15\1\15\1\15\1\15\1\15\22\0\1\15\2\0\1\12"+
-    "\6\0\1\7\2\0\1\10\1\14\1\0\12\1\4\0\1\11\2\0"+
-    "\2\1\1\4\2\1\1\6\2\1\1\2\4\1\1\3\1\5\13\1"+
-    "\4\0\1\13\1\0\32\1\12\0\1\15\32\0\1\15\u15df\0\1\15"+
-    "\u097f\0\13\15\35\0\1\15\1\15\5\0\1\15\57\0\1\15\u0fa0\0"+
-    "\1\15\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\ud00f\0";
+    "\11\0\1\12\1\2\1\2\1\3\1\2\23\0\1\7\1\0\1\16"+
+    "\6\0\1\13\1\0\1\10\1\14\1\11\1\0\12\1\4\0\1\15"+
+    "\1\6\1\0\32\4\4\0\1\17\1\0\32\4\12\0\1\2\71\0"+
+    "\1\5\u1f68\0\1\2\1\2\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
 
   /** 
    * Translates characters to character classes
@@ -51,12 +49,11 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\1\1\2\3\1\1\3\1\4\1\5\1\6\1\2"+
-    "\1\7\1\10\2\1\1\11\1\12\1\1\1\13\1\14"+
-    "\2\1\1\15";
+    "\1\0\2\1\1\2\1\3\1\4\5\5\1\6\1\7"+
+    "\1\10\1\11\1\1\2\12\1\13\1\14\1\15";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[22];
+    int [] result = new int[21];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -81,12 +78,12 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\16\0\34\0\52\0\70\0\106\0\16\0\16"+
-    "\0\16\0\124\0\16\0\142\0\160\0\176\0\214\0\16"+
-    "\0\232\0\34\0\16\0\250\0\266\0\34";
+    "\0\0\0\20\0\40\0\20\0\60\0\100\0\120\0\140"+
+    "\0\160\0\200\0\220\0\240\0\20\0\20\0\20\0\260"+
+    "\0\20\0\40\0\300\0\20\0\20";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[22];
+    int [] result = new int[21];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -109,16 +106,15 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\4\3\3\1\5\1\6\1\7\1\10"+
-    "\1\11\1\12\1\13\1\14\17\0\6\3\10\0\2\3"+
-    "\1\15\3\3\10\0\1\3\1\16\4\3\16\0\1\17"+
-    "\21\0\1\20\17\0\1\14\1\0\1\3\1\21\4\3"+
-    "\10\0\2\3\1\22\3\3\16\0\1\23\7\0\3\3"+
-    "\1\24\2\3\10\0\1\3\1\25\4\3\10\0\4\3"+
-    "\1\26\1\3\7\0";
+    "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
+    "\1\12\1\13\1\5\1\14\1\15\1\16\1\17\1\20"+
+    "\20\0\1\21\1\22\2\0\14\21\3\0\1\5\6\0"+
+    "\1\5\6\0\1\6\2\0\1\6\20\0\1\7\20\0"+
+    "\1\10\20\0\1\11\20\0\1\12\20\0\1\13\21\0"+
+    "\1\23\23\0\1\24\13\0\1\25\4\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[196];
+    int [] result = new int[208];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -156,11 +152,11 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\1\1\11\4\1\3\11\1\1\1\11\4\1\1\11"+
-    "\2\1\1\11\3\1";
+    "\1\0\1\11\1\1\1\11\10\1\3\11\1\1\1\11"+
+    "\2\1\2\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[22];
+    int [] result = new int[21];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -256,7 +252,7 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 136) {
+    while (i < 102) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
@@ -613,55 +609,55 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
 
       switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
         case 1: 
-          { return new Symbol(sym.PALABRA,new String(yytext()));
+          { System.err.println("Caracter Inválido" + yytext());
           }
         case 14: break;
         case 2: 
-          { System.err.println("Caracter Inválido" + yytext());
+          { System.out.print(yytext());
           }
         case 15: break;
         case 3: 
-          { return new Symbol(sym.CURSIVA,new String(yytext()));
+          { return new Symbol(sym.ESPACIO,new String(yytext()));
           }
         case 16: break;
         case 4: 
-          { return new Symbol(sym.ITEM,new String(yytext()));
+          { System.out.println("palabra");return new Symbol(sym.PALABRA,new String(yytext()));
           }
         case 17: break;
         case 5: 
-          { return new Symbol(sym.SANGRIA,new String(yytext()));
+          { return new Symbol(sym.SIGNO,new String(yytext()));
           }
         case 18: break;
         case 6: 
-          { return new Symbol(sym.ENCABEZADO,new String(yytext()));
+          { return new Symbol(sym.CURSIVA,new String(yytext()));
           }
         case 19: break;
         case 7: 
-          { return new Symbol(sym.PUNTO,new String(yytext()));
+          { return new Symbol(sym.ITEM,new String(yytext()));
           }
         case 20: break;
         case 8: 
-          { /*ignoro blancos*/
+          { return new Symbol(sym.SANGRIA,new String(yytext()));
           }
         case 21: break;
         case 9: 
-          { return new Symbol(sym.NEGRITA,new String(yytext()));
+          { return new Symbol(sym.ENCABEZADO,new String(yytext()));
           }
         case 22: break;
         case 10: 
-          { return new Symbol(sym.SALTO_DE_LINEA,new String(yytext()));
+          { return new Symbol(sym.ITEM_NUMERICO,new String(yytext()));
           }
         case 23: break;
         case 11: 
-          { return new Symbol(sym.FIN,new String(yytext()));
+          { return new Symbol(sym.NEGRITA,new String(yytext()));
           }
         case 24: break;
         case 12: 
-          { return new Symbol(sym.NEGRITA_CURSIVA,new String(yytext()));
+          { System.out.println("salto de linea"); return new Symbol(sym.SALTO_DE_LINEA,new String(yytext()));
           }
         case 25: break;
         case 13: 
-          { return new Symbol(sym.INICIO,new String(yytext()));
+          { return new Symbol(sym.NEGRITA_CURSIVA,new String(yytext()));
           }
         case 26: break;
         default: 

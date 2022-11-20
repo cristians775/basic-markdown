@@ -7,28 +7,42 @@ action code {:
 			
 :}
 
-terminal String NUMERO, CURSIVA, PUNTO,  SALTO_DE_LINEA,  NEGRITA,  ENCABEZADO,  ITEM,  SANGRIA,  NEGRITA_CURSIVA, INICIO, FIN, PALABRA;
+terminal String ESPACIO, SIGNO ,ITEM_NUMERICO, CURSIVA,  SALTO_DE_LINEA,  NEGRITA,  ENCABEZADO,  ITEM,  SANGRIA,  NEGRITA_CURSIVA, INICIO, FIN, PALABRA;
 
 
 
 
-non terminal iniciar, instrucciones, instruccion;
+non terminal iniciar, instrucciones, instruccion, oracion, palabras, palabra;
 
 start with iniciar;
 
-iniciar ::= INICIO instrucciones FIN
-		{: Programa.fin(); :};	
+iniciar ::= instrucciones {: Programa.fin(); :};	
 
 
 
-instrucciones ::= instruccion instrucciones | instruccion {::};
+instrucciones ::= instrucciones instruccion  | instruccion {::};
  
-instruccion ::=		NEGRITA:s PALABRA:p NEGRITA {:	Programa.concatenar(s,p);	:}
-				  | CURSIVA:s PALABRA:p CURSIVA {:	Programa.concatenar(s,p);	:}
-				  | ITEM:s PALABRA:p {:	Programa.concatenar(s,p);	:}
-				  | NUMERO:s PUNTO PALABRA:p {:	Programa.concatenar(Integer.toString(s),p);	:}
+instruccion ::=		NEGRITA:s palabras:p NEGRITA {:	Programa.concatenar(s,p);	:}
+				  | CURSIVA:s palabras:p CURSIVA {:	Programa.concatenar(s,p);	:}
+				  | ITEM:s palabras:p {:	Programa.concatenar(s,p);	:}
+				  | ITEM_NUMERICO:s palabras:p {:  Programa.concatenar(s,p);  :}
 				  | SANGRIA:s {:	Programa.concatenar(s,"");	:}
-				  | NEGRITA_CURSIVA:s PALABRA:p NEGRITA_CURSIVA {:	Programa.concatenar(s,p);	:}
-				  | SALTO_DE_LINEA:s PALABRA:p {: Programa.concatenar(s,p); :}
-				  |	PALABRA:p SALTO_DE_LINEA:s {: Programa.concatenar(s,p); :}
-				  | ENCABEZADO:s PALABRA:p	{: Programa.concatenar(s,p); :};
+				  | NEGRITA_CURSIVA:s palabras:p NEGRITA_CURSIVA {:	Programa.concatenar(s,p);	:}
+				  | SALTO_DE_LINEA:s palabras:p {: Programa.concatenar(s,p); :}
+				  |	palabras:p SALTO_DE_LINEA:s {: Programa.concatenar(s,p); :}
+				  | ENCABEZADO:s palabras:p	{: Programa.concatenar(s,p); :};
+
+
+
+palabras ::=  palabra:p palabras:ps {: RESULT=ps+p; :} 
+			 | palabra:p {:
+					RESULT = p;
+				:};
+
+
+
+palabra ::= PALABRA:p ESPACIO:e {: RESULT=e+p; :};
+
+
+
+

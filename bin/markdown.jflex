@@ -12,16 +12,15 @@ import java_cup.runtime.Symbol;
 
 
 %cup
-Digito = [0-9]*
-Numero = [0-9]
-Letra = ([a-zA-Z]*)([0-9]*)
-Palabra = {Letra}({Letra}|{Letra})*
+ITEM_NUMERICO = ([0-9]+).
+
+LETRA = ([a-zA-Z]+)([0-9]*)
+SIGNO = ("¿")+ | ( "?")+ | ("!")+ | ("!")+ | (",")+ | (".")+
+PALABRA = {LETRA}({LETRA}|{LETRA})*
+ESPACIO = [\t\f]+
+
 %%
 
-
-"INICIO" {return new Symbol(sym.INICIO,new String(yytext()));}
-
-"FIN" {return new Symbol(sym.FIN,new String(yytext()));}
 
 "*" {return new Symbol(sym.CURSIVA,new String(yytext()));}
 
@@ -35,16 +34,14 @@ Palabra = {Letra}({Letra}|{Letra})*
 
 "#" {return new Symbol(sym.ENCABEZADO,new String(yytext()));}
 
-"__" { return new Symbol(sym.SALTO_DE_LINEA,new String(yytext())); }
+"__" { System.out.println("salto de linea"); return new Symbol(sym.SALTO_DE_LINEA,new String(yytext())); }
 
-"." { return new Symbol(sym.PUNTO,new String(yytext())); }
+{ PALABRA } {System.out.println("palabra");return new Symbol(sym.PALABRA,new String(yytext()));}
 
-{ Palabra } {return new Symbol(sym.PALABRA,new String(yytext()));}
+{ ITEM_NUMERICO } {return new Symbol(sym.ITEM_NUMERICO,new String(yytext()));}
 
-{ Numero } {return new Symbol(sym.Numero,new String(yytext()));}
+{ SIGNO } { return new Symbol(sym.SIGNO,new String(yytext())); } 
 
-
-
-[\r\n\t\s ]+    	{ /*ignoro blancos*/ } 
+{ ESPACIO } { return new Symbol(sym.ESPACIO,new String(yytext()));}
 
 . {System.err.println("Caracter Inválido" + yytext());}

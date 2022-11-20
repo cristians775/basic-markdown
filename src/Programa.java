@@ -36,10 +36,11 @@ public class Programa {
                     break;
            default:
         	   System.out.println(symbol);
-        	   if (symbol.matches("/[0-9]*/")) {
+        	   if (symbol.matches("/ [0-9]*/")) {
                    texto+="<li>"+ palabra +"</li> \n";
                }
-        	   	texto += "hola";
+        	   texto+="<hola/>";
+        	   	System.out.println(texto);
                 break;
        }
 		
