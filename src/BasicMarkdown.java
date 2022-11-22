@@ -33,10 +33,10 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\12\1\2\1\2\1\3\1\2\23\0\1\7\1\0\1\16"+
-    "\6\0\1\13\1\0\1\10\1\14\1\11\1\0\12\1\4\0\1\15"+
-    "\1\6\1\0\32\4\4\0\1\17\1\0\32\4\12\0\1\2\71\0"+
-    "\1\5\u1f68\0\1\2\1\2\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+    "\12\0\1\2\1\2\1\2\1\2\22\0\1\11\1\6\1\0\1\15"+
+    "\6\0\1\12\1\0\1\7\1\13\1\10\1\0\12\1\4\0\1\14"+
+    "\1\5\1\0\32\3\4\0\1\16\1\0\32\3\12\0\1\2\71\0"+
+    "\1\4\u1f68\0\1\2\1\2\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
 
   /** 
    * Translates characters to character classes
@@ -49,11 +49,12 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\2\1\1\2\1\3\1\4\5\5\1\6\1\7"+
-    "\1\10\1\11\1\1\2\12\1\13\1\14\1\15";
+    "\1\0\2\1\1\2\1\3\5\4\1\5\1\6\1\7"+
+    "\1\10\1\11\1\1\2\12\2\3\2\0\1\13\1\14"+
+    "\1\15";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[21];
+    int [] result = new int[25];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -78,12 +79,13 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\20\0\40\0\20\0\60\0\100\0\120\0\140"+
-    "\0\160\0\200\0\220\0\240\0\20\0\20\0\20\0\260"+
-    "\0\20\0\40\0\300\0\20\0\20";
+    "\0\0\0\17\0\36\0\17\0\55\0\74\0\113\0\132"+
+    "\0\151\0\170\0\207\0\226\0\17\0\17\0\17\0\245"+
+    "\0\17\0\36\0\264\0\303\0\322\0\207\0\341\0\17"+
+    "\0\17";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[21];
+    int [] result = new int[25];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -107,14 +109,17 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
-    "\1\12\1\13\1\5\1\14\1\15\1\16\1\17\1\20"+
-    "\20\0\1\21\1\22\2\0\14\21\3\0\1\5\6\0"+
-    "\1\5\6\0\1\6\2\0\1\6\20\0\1\7\20\0"+
-    "\1\10\20\0\1\11\20\0\1\12\20\0\1\13\21\0"+
-    "\1\23\23\0\1\24\13\0\1\25\4\0";
+    "\1\12\1\13\1\14\1\15\1\16\1\17\1\20\17\0"+
+    "\1\21\1\22\1\0\14\21\1\0\1\5\1\0\1\5"+
+    "\5\23\1\24\10\0\1\5\1\6\4\25\11\0\1\5"+
+    "\1\25\1\7\3\25\11\0\1\5\2\25\1\10\2\25"+
+    "\11\0\1\5\3\25\1\11\1\25\11\0\1\5\4\25"+
+    "\1\12\11\0\1\5\5\25\1\26\17\0\1\27\22\0"+
+    "\1\30\3\0\1\5\5\23\1\26\10\0\1\5\5\23"+
+    "\1\24\10\0\1\5\5\25\20\0\1\31\4\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[208];
+    int [] result = new int[240];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -153,10 +158,10 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
     "\1\0\1\11\1\1\1\11\10\1\3\11\1\1\1\11"+
-    "\2\1\2\11";
+    "\3\1\2\0\1\1\2\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[21];
+    int [] result = new int[25];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -617,15 +622,15 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
           }
         case 15: break;
         case 3: 
-          { return new Symbol(sym.ESPACIO,new String(yytext()));
+          { System.out.println("palabra");return new Symbol(sym.PALABRA,new String(yytext()));
           }
         case 16: break;
         case 4: 
-          { System.out.println("palabra");return new Symbol(sym.PALABRA,new String(yytext()));
+          { return new Symbol(sym.SIGNO,new String(yytext()));
           }
         case 17: break;
         case 5: 
-          { return new Symbol(sym.SIGNO,new String(yytext()));
+          { return new Symbol(sym.ESPACIO,new String(yytext()));
           }
         case 18: break;
         case 6: 

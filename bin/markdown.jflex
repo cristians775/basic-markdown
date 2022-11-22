@@ -14,10 +14,11 @@ import java_cup.runtime.Symbol;
 %cup
 ITEM_NUMERICO = ([0-9]+).
 
-LETRA = ([a-zA-Z]+)([0-9]*)
+LETRA = ({ESPACIO})* ({SIGNO}*)([a-zA-Z]+)([0-9]*) ({ESPACIO})* ({SIGNO}*)
 SIGNO = ("¿")+ | ( "?")+ | ("!")+ | ("!")+ | (",")+ | (".")+
-PALABRA = {LETRA}({LETRA}|{LETRA})*
-ESPACIO = [\t\f]+
+PAL = {LETRA}({LETRA}|{LETRA})*
+ESPACIO = " "
+PALABRA = ({PAL} ({ESPACIO} | {SIGNO})*)
 
 %%
 
@@ -36,7 +37,7 @@ ESPACIO = [\t\f]+
 
 "__" { System.out.println("salto de linea"); return new Symbol(sym.SALTO_DE_LINEA,new String(yytext())); }
 
-{ PALABRA } {System.out.println("palabra");return new Symbol(sym.PALABRA,new String(yytext()));}
+{ PAL } {System.out.println("palabra");return new Symbol(sym.PALABRA,new String(yytext()));}
 
 { ITEM_NUMERICO } {return new Symbol(sym.ITEM_NUMERICO,new String(yytext()));}
 
