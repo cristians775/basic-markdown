@@ -13,8 +13,9 @@ import java_cup.runtime.Symbol;
 
 %cup
 ITEM_NUMERICO = ([0-9]+).
-SIGNO = ("¿")+ | ("?")+ | ("¡")+ | ("!")+ | (",")+ | (".")+
-SIMBOLOS = ({SIGNO}*)({ESPACIO})* ({SIGNO}*)([a-zA-Z]+)([0-9]*) ({ESPACIO})* ({SIGNO}*)({ESPACIO})*
+SIGNO = ("¿")+ | ("?")+ | ("¡")+ | ("!")+ | (",")+ | (".")+|("(")+|(")")+ | (":")+
+LETRAS_NUMEROS = ([a-zA-Z]+) | ([0-9]+)
+SIMBOLOS = ({SIGNO}*)({ESPACIO})* ({SIGNO}*)({LETRAS_NUMEROS}+) ({ESPACIO})* ({SIGNO}*)({ESPACIO})*
 TEXTO = {SIMBOLOS}({SIMBOLOS}|{SIMBOLOS})*
 ESPACIO = " "
 
@@ -22,9 +23,9 @@ ESPACIO = " "
 %%
 
 
-"*" {return new Symbol(sym.CURSIVA,new String(yytext()));}
+"*" {return new Symbol(sym.NEGRITA,new String(yytext()));}
 
-"**" {return new Symbol(sym.NEGRITA,new String(yytext()));}
+"**" {return new Symbol(sym.CURSIVA,new String(yytext()));}
 
 "***" { return new Symbol(sym.NEGRITA_CURSIVA,new String(yytext())); }
 

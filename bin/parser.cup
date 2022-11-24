@@ -27,10 +27,10 @@ instruccion ::=		NEGRITA:s TEXTO:t NEGRITA {:	Programa.concatenar(s,t);	:}
 			| CURSIVA:s TEXTO:t CURSIVA {:	Programa.concatenar(s,t);	:}
 			| ITEM:s texto_con_estilo:t ITEM {:	Programa.concatenar(s,(String)t);	:}
 			| NEGRITA_CURSIVA:s TEXTO:t NEGRITA_CURSIVA {:	Programa.concatenar(s,t);	:}
-			| SALTO_DE_LINEA:s TEXTO {: Programa.concatenar(s,""); :}
+			| SALTO_DE_LINEA:s TEXTO:t {: Programa.concatenar(s,t); :}
 			| SANGRIA:s TITULO texto_con_estilo:ts TITULO {: Programa.concatenar(s,"<h4>"+ts+"</h4>"); :}
+			| SANGRIA:s TEXTO:t {: Programa.concatenar(s,t);:}
 			| TITULO:s TEXTO:t TITULO {: Programa.concatenar(s,t); :}
-			| SANGRIA:s TEXTO {: Programa.concatenar(s,""); :}
 			| ENCABEZADO:s texto_con_estilo:t ENCABEZADO	{: Programa.concatenar(s,(String)t); :}
 			| TEXTO:t {: Programa.concatenar("",(String)t); :}
 			| URL:s TEXTO:t URL {: Programa.concatenar(s,t);:};

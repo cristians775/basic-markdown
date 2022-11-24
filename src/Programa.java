@@ -14,7 +14,7 @@ public class Programa {
 	   
 	   
 	   public static void concatenar(String symbol, String palabra) {
-		   System.out.println("simbolo" + symbol +"  "+ palabra);
+		  
 		   switch (symbol){
            case "*":  
         	   		texto +=  "<b>"+palabra+"</b> \n";
@@ -26,21 +26,22 @@ public class Programa {
         	   		texto += "<i><b>"+palabra+"</b></i> \n";
                     break;
            case ">":  
-        	   		texto += "<dd/>" + palabra;
+        	   		texto += "</dd>" + palabra;
                     break;
            case "#":  
         	   		texto += "<h1>" + palabra + "</h1> \n";
                     break;
            case "-":  
-        	   		texto += "	<li>" + palabra + "</li> \n";
+        	   		texto += "<dd/><li>" + palabra + "</li> \n";
                     break;
            case "$":
         	   		texto +="<h4>"+palabra+"</h4>";
         	   		break;
            case "%":
-        	        texto +="<a href="+palabra+">"+palabra+"</a>";
+        	        texto +="<a  target='_blank' href='https://"+palabra+"'>"+palabra+"</a>";
+        	        break;
            case "__":
-        	   texto+= "<br/>";
+        	   texto+= "<br/>"+palabra;
         	   break;
            default:
    

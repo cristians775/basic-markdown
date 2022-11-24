@@ -1,5 +1,14 @@
-#**    gik** dassdadas?. *** Encabezado *** **hola** *god*#
--**gik**.? dassdadas***Encabezado? asdjhadsjk *** **hola** *god*-
->$ hola  god pode$
-holaajs?.....jashd  jkasdhahdjk__ asdhdksj>ahaksdhjkasdhjkasdhkasdjhasdkjhasdjkadsghoiladkjhjdjkashdjk
--item ajsdhjkasdhsja- podes visitarnos en %www.youtube.com%
+#Diferencias entre ISO 8859 1 y UTF 8#
+>Las codificaciones mas frecuentes son *ISO 88591* y *UTF8*. A continuacion, te explicamos de que se trata cada una:
+$UTF 8 (8 bit Unicode Transformation Format):$
+Es un formato de codificacion de caracteres Unicode e **ISO 10646**, que utiliza simbolos de longitud variable.> Esta definido como estandar por la RFC 3629 de la Internet Engineering Task Force (IETF).
+ Sus caracteristicas principales son:
+-Es capaz de representar cualquier caracter Unicode-
+-Usa simbolos de longitud variable (de 1 a 4 bytes por caracter Unicode).-
+-Incluye la especificacion ***US ASCII de 7 bits***, por lo que cualquier mensaje ASCII se representa sin cambios.-
+-Incluye sincronia. Es posible determinar el inicio de cada simbolo sin reiniciar la lectura desde el principio de la comunicacion.-
+-No superposicion. Los conjuntos de valores que puede tomar cada byte de un caracter multibyte son disjuntos, por lo que no es posible confundirlos entre si.-
+$ISO 8859 1:$
+__Es una norma de la ISO que defi__ne la codificacion del alfabeto latino. Incluyendo los diacriticos, y letras especiales. Estos son necesarios para la escritura de las siguientes lenguas originarias de Europa occidental:
+-Afrikaans, aleman, castellano, catalan, euskera, aragones, asturiano, danes,escoces, feroes, fines, frances, gaelico, gallego, ingles, islandes, italiano, Holandes, noruego, portugues y sueco-
+__Para mas informacion accede a %www.google.com%
