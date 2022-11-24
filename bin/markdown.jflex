@@ -13,12 +13,11 @@ import java_cup.runtime.Symbol;
 
 %cup
 ITEM_NUMERICO = ([0-9]+).
-
-LETRA = ({ESPACIO})* ({SIGNO}*)([a-zA-Z]+)([0-9]*) ({ESPACIO})* ({SIGNO}*)
-SIGNO = ("¿")+ | ( "?")+ | ("!")+ | ("!")+ | (",")+ | (".")+
-PAL = {LETRA}({LETRA}|{LETRA})*
+SIGNO = ("¿")+ | ("?")+ | ("¡")+ | ("!")+ | (",")+ | (".")+
+SIMBOLOS = ({SIGNO}*)({ESPACIO})* ({SIGNO}*)([a-zA-Z]+)([0-9]*) ({ESPACIO})* ({SIGNO}*)({ESPACIO})*
+TEXTO = {SIMBOLOS}({SIMBOLOS}|{SIMBOLOS})*
 ESPACIO = " "
-PALABRA = ({PAL} ({ESPACIO} | {SIGNO})*)
+
 
 %%
 
@@ -35,9 +34,13 @@ PALABRA = ({PAL} ({ESPACIO} | {SIGNO})*)
 
 "#" {return new Symbol(sym.ENCABEZADO,new String(yytext()));}
 
-"__" { System.out.println("salto de linea"); return new Symbol(sym.SALTO_DE_LINEA,new String(yytext())); }
+"__" { return new Symbol(sym.SALTO_DE_LINEA,new String(yytext())); }
 
-{ PAL } {System.out.println("palabra");return new Symbol(sym.PALABRA,new String(yytext()));}
+"$" { return new Symbol(sym.TITULO,new String(yytext())); }
+
+"%" { return new Symbol(sym.URL,new String(yytext())); }
+
+{ TEXTO } { return new Symbol(sym.TEXTO,new String(yytext()));}
 
 { ITEM_NUMERICO } {return new Symbol(sym.ITEM_NUMERICO,new String(yytext()));}
 

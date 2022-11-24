@@ -7,12 +7,12 @@ action code {:
 			
 :}
 
-terminal String ESPACIO, SIGNO ,ITEM_NUMERICO, CURSIVA,  SALTO_DE_LINEA,  NEGRITA,  ENCABEZADO,  ITEM,  SANGRIA,  NEGRITA_CURSIVA, PALABRA;
+terminal String ESPACIO, SIGNO ,ITEM_NUMERICO,TITULO, CURSIVA, URL, SALTO_DE_LINEA,  NEGRITA,  ENCABEZADO,  ITEM,  SANGRIA,  NEGRITA_CURSIVA, TEXTO;
 
 
 
 
-non terminal iniciar, instrucciones, instruccion, palabra;
+non terminal iniciar, instrucciones, instruccion, texto_con_estilo, texto;
 
 start with iniciar;
 
@@ -20,23 +20,34 @@ iniciar ::= instrucciones {: Programa.fin(); :};
 
 
 
-instrucciones ::= instrucciones instruccion  | instruccion {::};
+instrucciones ::= instrucciones instruccion  
+				| instruccion {::};
  
-instruccion ::=		NEGRITA:s PALABRA:p NEGRITA {:	Programa.concatenar(s,p);	:}
-				  | CURSIVA:s PALABRA:p CURSIVA {:	Programa.concatenar(s,p);	:}
-				  | ITEM:s PALABRA:p {:	Programa.concatenar(s,p);	:}
-				  | ITEM_NUMERICO:s PALABRA:p {:  Programa.concatenar(s,p);  :}
-				  | SANGRIA:s {:	Programa.concatenar(s,"");	:}
-				  | NEGRITA_CURSIVA:s PALABRA:p NEGRITA_CURSIVA {:	Programa.concatenar(s,p);	:}
-				  | SALTO_DE_LINEA:s PALABRA:p {: Programa.concatenar(s,p); :}
-				  |	PALABRA:p SALTO_DE_LINEA:s {: Programa.concatenar(s,p); :}
-				  | ENCABEZADO:s PALABRA:p	{: Programa.concatenar(s,p); :};
-
-
-
-			
-			 
-
+instruccion ::=		NEGRITA:s TEXTO:t NEGRITA {:	Programa.concatenar(s,t);	:}
+			| CURSIVA:s TEXTO:t CURSIVA {:	Programa.concatenar(s,t);	:}
+			| ITEM:s texto_con_estilo:t ITEM {:	Programa.concatenar(s,(String)t);	:}
+			| NEGRITA_CURSIVA:s TEXTO:t NEGRITA_CURSIVA {:	Programa.concatenar(s,t);	:}
+			| SALTO_DE_LINEA:s TEXTO {: Programa.concatenar(s,""); :}
+			| SANGRIA:s TITULO texto_con_estilo:ts TITULO {: Programa.concatenar(s,"<h4>"+ts+"</h4>"); :}
+			| TITULO:s TEXTO:t TITULO {: Programa.concatenar(s,t); :}
+			| SANGRIA:s TEXTO {: Programa.concatenar(s,""); :}
+			| ENCABEZADO:s texto_con_estilo:t ENCABEZADO	{: Programa.concatenar(s,(String)t); :}
+			| TEXTO:t {: Programa.concatenar("",(String)t); :}
+			| URL:s TEXTO:t URL {: Programa.concatenar(s,t);:};
+				
+texto_con_estilo ::=   texto:t texto_con_estilo:ts {: RESULT=((String)t)+((String)ts); :} 	
+					|  texto:t ESPACIO texto_con_estilo:ts {: RESULT=((String)t)+" "+((String)ts); :}
+					|  texto:t ESPACIO {: RESULT=((String)t)+" "; :}
+					|  texto:t {: RESULT=(String)t; :};
+					
+texto ::= NEGRITA TEXTO:t NEGRITA {:	RESULT="<b>"+t+"</b>";	:}
+		| NEGRITA_CURSIVA TEXTO:t NEGRITA_CURSIVA {:	RESULT="<b><i>"+t+"</i></b>";	:}
+		| CURSIVA TEXTO:t CURSIVA {:	RESULT="<i>"+t+"</i>";	:}
+		| URL TEXTO:t URL {: RESULT="<a>"+t+"</a>";:}
+		| TEXTO:t {:	RESULT=t;	:};
+				
+					
+					
 
 
 

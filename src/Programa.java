@@ -34,13 +34,18 @@ public class Programa {
            case "-":  
         	   		texto += "	<li>" + palabra + "</li> \n";
                     break;
+           case "$":
+        	   		texto +="<h4>"+palabra+"</h4>";
+        	   		break;
+           case "%":
+        	        texto +="<a href="+palabra+">"+palabra+"</a>";
+           case "__":
+        	   texto+= "<br/>";
+        	   break;
            default:
-        	   System.out.println(symbol);
-        	   if (symbol.matches("/ [0-9]*/")) {
-                   texto+="<li>"+ palabra +"</li> \n";
-               }
-        	   texto+="<hola/>";
-        	   	System.out.println(texto);
+   
+        	   texto+=palabra;
+        	 
                 break;
        }
 		

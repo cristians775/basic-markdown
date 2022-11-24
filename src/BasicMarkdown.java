@@ -33,10 +33,10 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\12\0\1\2\1\2\1\2\1\2\22\0\1\11\1\6\1\0\1\15"+
-    "\6\0\1\12\1\0\1\7\1\13\1\10\1\0\12\1\4\0\1\14"+
-    "\1\5\1\0\32\3\4\0\1\16\1\0\32\3\12\0\1\2\71\0"+
-    "\1\4\u1f68\0\1\2\1\2\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+    "\12\0\1\2\1\2\1\2\1\2\22\0\1\12\1\6\1\0\1\16"+
+    "\1\20\1\21\4\0\1\13\1\0\1\7\1\14\1\10\1\0\12\1"+
+    "\4\0\1\15\1\4\1\0\32\11\4\0\1\17\1\0\32\11\12\0"+
+    "\1\2\33\0\1\5\35\0\1\3\u1f68\0\1\2\1\2\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
 
   /** 
    * Translates characters to character classes
@@ -49,12 +49,12 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\2\1\1\2\1\3\5\4\1\5\1\6\1\7"+
-    "\1\10\1\11\1\1\2\12\2\3\2\0\1\13\1\14"+
-    "\1\15";
+    "\1\0\2\1\1\2\6\3\1\4\1\5\1\6\1\7"+
+    "\1\10\1\11\1\1\1\12\1\13\2\14\2\0\2\4"+
+    "\1\0\1\15\1\16\1\4\1\17";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[25];
+    int [] result = new int[30];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -79,13 +79,13 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\17\0\36\0\17\0\55\0\74\0\113\0\132"+
-    "\0\151\0\170\0\207\0\226\0\17\0\17\0\17\0\245"+
-    "\0\17\0\36\0\264\0\303\0\322\0\207\0\341\0\17"+
-    "\0\17";
+    "\0\0\0\22\0\44\0\22\0\66\0\110\0\132\0\154"+
+    "\0\176\0\220\0\242\0\264\0\306\0\22\0\22\0\22"+
+    "\0\330\0\22\0\22\0\22\0\44\0\352\0\264\0\374"+
+    "\0\u010e\0\u0120\0\u0132\0\22\0\u0144\0\22";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[25];
+    int [] result = new int[30];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -109,17 +109,20 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
-    "\1\12\1\13\1\14\1\15\1\16\1\17\1\20\17\0"+
-    "\1\21\1\22\1\0\14\21\1\0\1\5\1\0\1\5"+
-    "\5\23\1\24\10\0\1\5\1\6\4\25\11\0\1\5"+
-    "\1\25\1\7\3\25\11\0\1\5\2\25\1\10\2\25"+
-    "\11\0\1\5\3\25\1\11\1\25\11\0\1\5\4\25"+
-    "\1\12\11\0\1\5\5\25\1\26\17\0\1\27\22\0"+
-    "\1\30\3\0\1\5\5\23\1\26\10\0\1\5\5\23"+
-    "\1\24\10\0\1\5\5\25\20\0\1\31\4\0";
+    "\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21"+
+    "\1\22\1\23\22\0\1\24\1\25\1\0\17\24\3\0"+
+    "\1\5\5\26\1\13\1\27\12\0\1\26\1\6\4\26"+
+    "\1\13\1\27\12\0\2\26\1\7\3\26\1\13\1\27"+
+    "\12\0\3\26\1\10\2\26\1\13\1\27\12\0\4\26"+
+    "\1\11\1\26\1\13\1\27\12\0\5\26\1\12\1\13"+
+    "\1\27\10\0\1\13\1\0\6\30\1\13\1\31\12\0"+
+    "\6\32\1\13\1\27\22\0\1\33\25\0\1\34\5\0"+
+    "\6\26\1\13\1\27\12\0\6\30\1\13\1\35\12\0"+
+    "\6\30\1\13\1\31\12\0\6\32\1\13\23\0\1\36"+
+    "\11\0\6\26\1\13\1\35\7\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[240];
+    int [] result = new int[342];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -157,11 +160,11 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\1\1\1\11\10\1\3\11\1\1\1\11"+
-    "\3\1\2\0\1\1\2\11";
+    "\1\0\1\11\1\1\1\11\11\1\3\11\1\1\3\11"+
+    "\1\1\2\0\2\1\1\0\1\1\1\11\1\1\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[25];
+    int [] result = new int[30];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -257,7 +260,7 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 102) {
+    while (i < 110) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
@@ -616,55 +619,63 @@ public class BasicMarkdown implements java_cup.runtime.Scanner {
         case 1: 
           { System.err.println("Caracter Inválido" + yytext());
           }
-        case 14: break;
+        case 16: break;
         case 2: 
           { System.out.print(yytext());
           }
-        case 15: break;
+        case 17: break;
         case 3: 
-          { System.out.println("palabra");return new Symbol(sym.PALABRA,new String(yytext()));
-          }
-        case 16: break;
-        case 4: 
           { return new Symbol(sym.SIGNO,new String(yytext()));
           }
-        case 17: break;
+        case 18: break;
+        case 4: 
+          { return new Symbol(sym.TEXTO,new String(yytext()));
+          }
+        case 19: break;
         case 5: 
           { return new Symbol(sym.ESPACIO,new String(yytext()));
           }
-        case 18: break;
+        case 20: break;
         case 6: 
           { return new Symbol(sym.CURSIVA,new String(yytext()));
           }
-        case 19: break;
+        case 21: break;
         case 7: 
           { return new Symbol(sym.ITEM,new String(yytext()));
           }
-        case 20: break;
+        case 22: break;
         case 8: 
           { return new Symbol(sym.SANGRIA,new String(yytext()));
           }
-        case 21: break;
+        case 23: break;
         case 9: 
           { return new Symbol(sym.ENCABEZADO,new String(yytext()));
           }
-        case 22: break;
-        case 10: 
-          { return new Symbol(sym.ITEM_NUMERICO,new String(yytext()));
-          }
-        case 23: break;
-        case 11: 
-          { return new Symbol(sym.NEGRITA,new String(yytext()));
-          }
         case 24: break;
-        case 12: 
-          { System.out.println("salto de linea"); return new Symbol(sym.SALTO_DE_LINEA,new String(yytext()));
+        case 10: 
+          { return new Symbol(sym.TITULO,new String(yytext()));
           }
         case 25: break;
-        case 13: 
-          { return new Symbol(sym.NEGRITA_CURSIVA,new String(yytext()));
+        case 11: 
+          { return new Symbol(sym.URL,new String(yytext()));
           }
         case 26: break;
+        case 12: 
+          { return new Symbol(sym.ITEM_NUMERICO,new String(yytext()));
+          }
+        case 27: break;
+        case 13: 
+          { return new Symbol(sym.NEGRITA,new String(yytext()));
+          }
+        case 28: break;
+        case 14: 
+          { return new Symbol(sym.SALTO_DE_LINEA,new String(yytext()));
+          }
+        case 29: break;
+        case 15: 
+          { return new Symbol(sym.NEGRITA_CURSIVA,new String(yytext()));
+          }
+        case 30: break;
         default: 
           if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
             zzAtEOF = true;
